@@ -9,6 +9,7 @@ import { response } from 'express';
 })
 export class EventosComponent implements OnInit {
 
+
   public eventos: any;
 
   constructor(private http: HttpClient) { }
