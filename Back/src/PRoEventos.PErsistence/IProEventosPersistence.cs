@@ -23,7 +23,7 @@ namespace PRoEventos.PErsistence
 
         Task<Evento[]> GetAllEventoByTemaAsync(string tema, bool includePalestrantes);
         Task<Evento[]> GetAllEventoAsync(bool includePalestrantes);
-        Task<Evento[]> GetEventosByIdAsync(int EventoId, bool includePalestrantes);
+        Task<Evento> GetEventosByIdAsync(int EventoId, bool includePalestrantes);
 
         //Palestrantes
 
