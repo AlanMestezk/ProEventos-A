@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ProEventos.Domain;
 
-namespace PRoEventos.PErsistence
+namespace PRoEventos.PErsistence.Contexto
 {
     public class ProEventosContext : DbContext
     {
