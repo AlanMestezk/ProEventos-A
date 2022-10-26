@@ -77,19 +77,52 @@ namespace ProEventos.Application
             }
         }
 
-        public Task<Evento[]> GetAllEventoAsync(bool includePalestrantes = false)
+        public async Task<Evento[]> GetAllEventoAsync(bool includePalestrantes = false)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var eventos = await _eventoPersist.GetAllEventoAsync(includePalestrantes);
+
+                if(eventos ==null) return null;
+
+                return eventos;
+            }
+            catch (Exception ex)
+            { 
+                throw new Exception($"Vixi, deu erro: {ex.Message}");
+            }
         }
 
-        public Task<Evento[]> GetAllEventoByTemaAsync(string tema, bool includePalestrantes = false)
+        public async Task<Evento[]> GetAllEventoByTemaAsync(string tema, bool includePalestrantes = false)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var eventos = await _eventoPersist.GetAllEventoByTemaAsync(tema, includePalestrantes);
+
+                if(eventos ==null) return null;
+
+                return eventos;
+            }
+            catch (Exception ex)
+            { 
+                throw new Exception($"Vixi, deu erro: {ex.Message}");
+            }
         }
 
-        public Task<Evento> GetEventosByIdAsync(int EventoId, bool includePalestrantes = false)
+        public async Task<Evento> GetEventosByIdAsync(int eventoId, bool includePalestrantes = false)
         {
-            throw new NotImplementedException();
+             try
+            {
+                var eventos = await _eventoPersist.GetEventosByIdAsync(eventoId, includePalestrantes);
+
+                if(eventos ==null) return null;
+
+                return eventos;
+            }
+            catch (Exception ex)
+            { 
+                throw new Exception($"Vixi, deu erro: {ex.Message}");
+            }
         }
 
     }
