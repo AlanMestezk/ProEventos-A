@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProEventos.Application.Contratos;
 using ProEventos.Domain;
-using PRoEventos.PErsistence.Contexto;
 
 namespace Pro_Eventos.Api.Controllers
 {
@@ -113,7 +110,7 @@ namespace Pro_Eventos.Api.Controllers
             try
             {
                 return await _eventoService.DeleteEvento(id) ?
-                    Ok($"Deletado o {id}") :
+                    Ok($"Deletado o evento com o id: {id}") :
                     BadRequest($"Evento {id} não deletado");
                 
             }

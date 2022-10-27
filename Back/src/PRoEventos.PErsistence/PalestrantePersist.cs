@@ -18,6 +18,8 @@ namespace PRoEventos.PErsistence
             _context = context;
         }
 
+        
+
         public async Task<Palestrante[]> GetAllPalestranteAsync(bool includeEventos = false)
         {
             IQueryable<Palestrante> query = _context.Palestrantes
@@ -29,10 +31,12 @@ namespace PRoEventos.PErsistence
                         .ThenInclude(pe => pe.Evento);        
             }
 
-            query = query.OrderBy(p => p.Id);
+            query = query.AsNoTracking().OrderBy(p => p.Id);
 
             return await query.ToArrayAsync();
         }
+
+
 
         public async Task<Palestrante[]> GetAllPalestrantesByNomeAsync(string nome, bool includeEventos)
         {
@@ -45,11 +49,13 @@ namespace PRoEventos.PErsistence
                         .ThenInclude(pe => pe.Evento);        
             }
 
-            query = query.OrderBy(p => p.Id)
+            query = query.AsNoTracking().OrderBy(p => p.Id)
                                     .Where(p => p.Nome.ToLower().Contains(nome.ToLower()));
 
             return await query.ToArrayAsync();
         }
+
+
         public async Task<Palestrante> GetPalestrantesByIdAsync(int palestranteId, bool includeEventos)
         {
             IQueryable<Palestrante> query = _context.Palestrantes
@@ -61,7 +67,7 @@ namespace PRoEventos.PErsistence
                         .ThenInclude(pe => pe.Evento);        
             }
 
-            query = query.OrderBy(p => p.Id)
+            query = query.AsNoTracking().OrderBy(p => p.Id)
                                     .Where(p => p.Id== palestranteId);
 
             return await query.FirstOrDefaultAsync();
