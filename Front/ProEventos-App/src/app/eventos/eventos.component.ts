@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { response } from 'express';
 
 @Component({
   selector: 'app-eventos',
